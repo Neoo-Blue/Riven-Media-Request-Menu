@@ -1,328 +1,339 @@
-# Riven-Media-Request-Menu
+<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
 
-Riven Media Request Menu
+# Riven Media Request Menu
+
 A powerful Tampermonkey userscript that adds a smart request menu to popular movie and TV show websites, allowing you to seamlessly request content to your Riven media server directly from IMDb, TMDB, TVDB, Trakt, and Letterboxd.
 
-✨ Features
-🎬 Multi-Site Support - Works on IMDb, TMDB, TVDB, Trakt, and Letterboxd
+[
+[
+[
 
-🔄 Auto-Refresh - Real-time library status updates every 3 seconds when menu is open
+## ✨ Features
 
-🔍 Smart ID Lookup - Automatically converts IMDb IDs to TMDb/TVDB IDs using multiple fallback APIs
+- 🎬 **Multi-Site Support** - Works on IMDb, TMDB, TVDB, Trakt, and Letterboxd
+- 🔄 **Auto-Refresh** - Real-time library status updates every 3 seconds when menu is open
+- 🔍 **Smart ID Lookup** - Automatically converts IMDb IDs to TMDb/TVDB IDs using multiple fallback APIs
+- 📊 **Library Status Checking** - Instantly see if content is already in your Riven library
+- 🎯 **One-Click Requests** - Request movies and TV shows with a single click
+- 🎨 **Clean UI** - Beautiful black and white themed menu that doesn't interfere with site design
+- 🚀 **Duplicate Prevention** - Smart detection ensures only one menu per page
+- 🔒 **Secure API Integration** - Uses encrypted API key storage
 
-📊 Library Status Checking - Instantly see if content is already in your Riven library
 
-🎯 One-Click Requests - Request movies and TV shows with a single click
+## 📋 Prerequisites
 
-🎨 Clean UI - Beautiful black and white themed menu that doesn't interfere with site design
-
-🚀 Duplicate Prevention - Smart detection ensures only one menu per page
-
-🔒 Secure API Integration - Uses encrypted API key storage
-
-📋 Prerequisites
 Before installing this userscript, you need:
 
-Tampermonkey browser extension installed
+- [Tampermonkey](https://www.tampermonkey.net/) browser extension installed
+- A running [Riven](https://github.com/rivenmedia/riven) media server
+- Riven API key (generated from your Riven settings page)
+- Your Riven server's base URL (e.g., `http://192.168.50.111:8080`)
 
-A running Riven media server
 
-Riven API key (generated from your Riven settings page)
+## 🚀 Installation
 
-Your Riven server's base URL (e.g., http://192.168.50.111:8080)
+### Step 1: Install Tampermonkey
 
-🚀 Installation
-Step 1: Install Tampermonkey
 Download and install Tampermonkey for your browser:
 
-Chrome
+- [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+- [Safari](https://apps.apple.com/us/app/tampermonkey/id1482490089)
 
-Firefox
 
-Edge
+### Step 2: Install the Userscript
 
-Safari
+1. Click the Tampermonkey icon in your browser toolbar
+2. Select **"Create a new script"**
+3. Delete the default code
+4. Copy and paste the complete userscript code
+5. Press **Ctrl+S** (or **Cmd+S** on Mac) to save
+6. The script is now installed!
 
-Step 2: Install the Userscript
-Click the Tampermonkey icon in your browser toolbar
+### Step 3: Configure API Settings
 
-Select "Create a new script"
+1. Visit any supported movie site (e.g., IMDb)
+2. The settings dialog will appear automatically on first run
+3. Enter your **Riven Base URL** (without trailing slash): `http://192.168.50.111:8080`
+4. Enter your **Riven API Key** (generate from Riven settings if you don't have one)
+5. Click **"Save \& Reload"**
 
-Delete the default code
+## 🎯 Usage
 
-Copy and paste the complete userscript code
+### Basic Usage
 
-Press Ctrl+S (or Cmd+S on Mac) to save
+1. Navigate to any movie or TV show page on supported sites
+2. Look for the **🎬 Riven** button next to the title
+3. Click the button to open the menu
+4. The menu shows:
+    - Media title and IDs (IMDb, TMDb, TVDB)
+    - Library status (In Library / Not in Library)
+    - Current state (Completed, Downloading, Pending, etc.)
+5. Click **"Request"** to add the content to your Riven library
+6. Use **🔄** button to manually refresh library status
+7. Click **"Hide"** to dismiss the menu
 
-The script is now installed!
+### Menu Controls
 
-Step 3: Configure API Settings
-Visit any supported movie site (e.g., IMDb)
+| Button | Function |
+| :-- | :-- |
+| **🎬 Riven** | Toggle menu visibility |
+| **Request** | Send request to Riven server |
+| **🔄** | Manually refresh library status |
+| **Hide** | Close menu for current page |
 
-The settings dialog will appear automatically on first run
+### Auto-Refresh
 
-Enter your Riven Base URL (without trailing slash): http://192.168.50.111:8080
+When the menu is open, the script automatically checks library status every **3 seconds**. This stops when you:
 
-Enter your Riven API Key (generate from Riven settings if you don't have one)
+- Close the menu
+- Click the Hide button
+- Navigate away from the page
 
-Click "Save & Reload"
 
-🎯 Usage
-Basic Usage
-Navigate to any movie or TV show page on supported sites
+## 🌐 Supported Websites
 
-Look for the 🎬 Riven button next to the title
+| Website | URL Pattern | Features |
+| :-- | :-- | :-- |
+| **IMDb** | `imdb.com/title/*` | Full support with IMDb ID extraction |
+| **TMDB** | `themoviedb.org/movie/*`, `themoviedb.org/tv/*` | Direct TMDb ID support |
+| **TVDB** | `thetvdb.com/*` | TVDB ID and IMDb lookup |
+| **Trakt** | `trakt.tv/movies/*`, `app.trakt.tv/shows/*` | Movie and TV show support |
+| **Letterboxd** | `letterboxd.com/film/*` | Movie support with ID extraction |
 
-Click the button to open the menu
+## 🔧 Configuration
 
-The menu shows:
+### Access Settings
 
-Media title and IDs (IMDb, TMDb, TVDB)
+Click **Tampermonkey icon** → **Riven Media Request Menu** → **⚙️ Riven Settings**
 
-Library status (In Library / Not in Library)
+### Required Settings
 
-Current state (Completed, Downloading, Pending, etc.)
-
-Click "Request" to add the content to your Riven library
-
-Use 🔄 button to manually refresh library status
-
-Click "Hide" to dismiss the menu
-
-Menu Controls
-Button	Function
-🎬 Riven	Toggle menu visibility
-Request	Send request to Riven server
-🔄	Manually refresh library status
-Hide	Close menu for current page
-Auto-Refresh
-When the menu is open, the script automatically checks library status every 3 seconds. This stops when you:
-
-Close the menu
-
-Click the Hide button
-
-Navigate away from the page
-
-🌐 Supported Websites
-Website	URL Pattern	Features
-IMDb	imdb.com/title/*	Full support with IMDb ID extraction
-TMDB	themoviedb.org/movie/*, themoviedb.org/tv/*	Direct TMDb ID support
-TVDB	thetvdb.com/*	TVDB ID and IMDb lookup
-Trakt	trakt.tv/movies/*, app.trakt.tv/shows/*	Movie and TV show support
-Letterboxd	letterboxd.com/film/*	Movie support with ID extraction
-🔧 Configuration
-Access Settings
-Click Tampermonkey icon → Riven Media Request Menu → ⚙️ Riven Settings
-
-Required Settings
-text
+```
 Base URL: http://192.168.50.111:8080
 API Key: your_riven_api_key_here
-Generating an API Key
-Open your Riven web interface
+```
 
-Navigate to Settings → API
 
-Click "Generate API Key"
+### Generating an API Key
 
-Copy the key and paste it into the userscript settings
+1. Open your Riven web interface
+2. Navigate to **Settings** → **API**
+3. Click **"Generate API Key"**
+4. Copy the key and paste it into the userscript settings
 
-🎨 Status Indicators
+## 🎨 Status Indicators
+
 The menu displays different states with emoji indicators:
 
-Emoji	State	Description
-✅	Completed	Successfully downloaded and processed
-⬇️	Downloaded/Downloading	Currently downloading
-🔗	Symlinked	Files linked to media server
-⏳	Pending	Waiting in queue
-📝	Requested	Request received
-📇	Indexed	Found in indexers
-🔍	Scraped	Sources found
-🔄	PartiallyCompleted	Some episodes/seasons complete
-▶️	Ongoing	Series still airing
-🔜	Unreleased	Not yet released
-⏸️	Paused	Processing paused
-❌	Failed	Download failed
-❓	Unknown	Status unknown
-🔍 ID Lookup Fallback Chain
+
+| Emoji | State | Description |
+| :-- | :-- | :-- |
+| ✅ | Completed | Successfully downloaded and processed |
+| ⬇️ | Downloaded/Downloading | Currently downloading |
+| 🔗 | Symlinked | Files linked to media server |
+| ⏳ | Pending | Waiting in queue |
+| 📝 | Requested | Request received |
+| 📇 | Indexed | Found in indexers |
+| 🔍 | Scraped | Sources found |
+| 🔄 | PartiallyCompleted | Some episodes/seasons complete |
+| ▶️ | Ongoing | Series still airing |
+| 🔜 | Unreleased | Not yet released |
+| ⏸️ | Paused | Processing paused |
+| ❌ | Failed | Download failed |
+| ❓ | Unknown | Status unknown |
+
+## 🔍 ID Lookup Fallback Chain
+
 When only an IMDb ID is available, the script uses multiple APIs to find TMDb/TVDB IDs:
 
-TMDb API - Primary lookup source (most reliable)
-
-Trakt API - Secondary fallback (provides both TMDb and TVDB IDs)
-
-TVmaze API - Final fallback for TV shows (provides TVDB IDs)
+1. **TMDb API** - Primary lookup source (most reliable)
+2. **Trakt API** - Secondary fallback (provides both TMDb and TVDB IDs)
+3. **TVmaze API** - Final fallback for TV shows (provides TVDB IDs)
 
 Each lookup has a 5-second timeout before falling back to the next service.
 
-🐛 Troubleshooting
-Button Not Appearing
-Problem: The Riven button doesn't show up on the page
+## 🐛 Troubleshooting
 
-Solutions:
+### Button Not Appearing
 
-Refresh the page (Ctrl+R / Cmd+R)
+**Problem:** The Riven button doesn't show up on the page
 
-Check browser console (F12) for error messages
+**Solutions:**
 
-Ensure Tampermonkey is enabled for the site
+- Refresh the page (Ctrl+R / Cmd+R)
+- Check browser console (F12) for error messages
+- Ensure Tampermonkey is enabled for the site
+- Verify the URL matches supported patterns
+- Wait 2 seconds after page load (script initialization delay)
 
-Verify the URL matches supported patterns
 
-Wait 2 seconds after page load (script initialization delay)
+### Request Failed (400 Error)
 
-Request Failed (400 Error)
-Problem: "Request failed (400)" notification
+**Problem:** "Request failed (400)" notification
 
-Solutions:
+**Solutions:**
 
-Missing TMDb/TVDB ID - script will attempt automatic lookup
+- Missing TMDb/TVDB ID - script will attempt automatic lookup
+- Check console logs to see which IDs were found
+- Verify your Riven server is running and accessible
 
-Check console logs to see which IDs were found
 
-Verify your Riven server is running and accessible
+### No TMDb/TVDB ID Available
 
-No TMDb/TVDB ID Available
-Problem: "❌ No TMDb or TVDB ID available after all lookups"
+**Problem:** "❌ No TMDb or TVDB ID available after all lookups"
 
-Solutions:
+**Solutions:**
 
-The content might not be indexed in TMDB/TVDB databases
+- The content might not be indexed in TMDB/TVDB databases
+- Try visiting the TMDB or TVDB page directly for this content
+- Check if the IMDb ID is correct
 
-Try visiting the TMDB or TVDB page directly for this content
 
-Check if the IMDb ID is correct
+### Status Always Shows "Not in Library"
 
-Status Always Shows "Not in Library"
-Problem: Status doesn't update after requesting
+**Problem:** Status doesn't update after requesting
 
-Cause: The item might be processing or the title search isn't matching
+**Cause:** The item might be processing or the title search isn't matching
 
-Solutions:
+**Solutions:**
 
-Click the 🔄 refresh button
+- Click the 🔄 refresh button
+- Wait for auto-refresh (3-second intervals)
+- Check your Riven server directly to confirm the request
 
-Wait for auto-refresh (3-second intervals)
 
-Check your Riven server directly to confirm the request
+### Settings Dialog Not Appearing
 
-Settings Dialog Not Appearing
-Problem: Can't access configuration
+**Problem:** Can't access configuration
 
-Solutions:
+**Solutions:**
 
-Click Tampermonkey icon → Script name → ⚙️ Riven Settings
+- Click Tampermonkey icon → Script name → ⚙️ Riven Settings
+- Delete and reinstall the script
+- Clear browser cache and reload
 
-Delete and reinstall the script
 
-Clear browser cache and reload
+## 📝 API Endpoints Used
 
-📝 API Endpoints Used
 The script interacts with these Riven API endpoints:
 
-GET /api/v1/items - Search library for existing items
-
-POST /api/v1/items/add - Add new media requests
+- `GET /api/v1/items` - Search library for existing items
+- `POST /api/v1/items/add` - Add new media requests
 
 Parameters for adding items:
 
-tmdb_ids - TMDb ID (required if no tvdb_ids)
+- `tmdb_ids` - TMDb ID (required if no tvdb_ids)
+- `tvdb_ids` - TVDB ID (required if no tmdb_ids)
+- `media_type` - Either `movie` or `tv`
 
-tvdb_ids - TVDB ID (required if no tmdb_ids)
 
-media_type - Either movie or tv
+## 🛡️ Privacy \& Security
 
-🛡️ Privacy & Security
-API Key Storage: Stored locally using Tampermonkey's GM_setValue (encrypted)
+- **API Key Storage**: Stored locally using Tampermonkey's `GM_setValue` (encrypted)
+- **External APIs**: Uses public APIs (TMDb, Trakt, TVmaze) for ID lookups
+- **No Data Collection**: Script doesn't collect or send any personal data
+- **CORS**: Uses `GM_xmlhttpRequest` to bypass CORS restrictions securely
 
-External APIs: Uses public APIs (TMDb, Trakt, TVmaze) for ID lookups
 
-No Data Collection: Script doesn't collect or send any personal data
+## 🤝 Contributing
 
-CORS: Uses GM_xmlhttpRequest to bypass CORS restrictions securely
-
-🤝 Contributing
 Contributions are welcome! Here's how you can help:
 
-Fork the repository
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Create a feature branch (git checkout -b feature/amazing-feature)
+### Development Guidelines
 
-Commit your changes (git commit -m 'Add amazing feature')
+- Test on all supported websites before submitting
+- Add console logging for debugging
+- Follow existing code style
+- Update README if adding new features
 
-Push to the branch (git push origin feature/amazing-feature)
 
-Open a Pull Request
+## 📄 License
 
-Development Guidelines
-Test on all supported websites before submitting
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Add console logging for debugging
+## 🙏 Acknowledgments
 
-Follow existing code style
+- [Riven Media](https://github.com/rivenmedia/riven) - The amazing media management system
+- [Tampermonkey](https://www.tampermonkey.net/) - Userscript manager
+- [TMDb](https://www.themoviedb.org/) - Movie and TV show database
+- [Trakt](https://trakt.tv/) - Media tracking service
+- [TVmaze](https://www.tvmaze.com/) - TV show database
 
-Update README if adding new features
 
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 📞 Support
 
-Riven Media - The amazing media management system
+- **Issues**: [GitHub Issues](https://github.com/yourusername/riven-request-menu/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/riven-request-menu/discussions)
+- **Riven Discord**: [Join Riven Community](https://discord.gg/riven)
 
-Tampermonkey - Userscript manager
 
-TMDb - Movie and TV show database
+## 🗺️ Roadmap
 
-Trakt - Media tracking service
+- [ ] Add support for more movie databases
+- [ ] Implement keyboard shortcuts
+- [ ] Add notification preferences
+- [ ] Support for movie collections/series
+- [ ] Quality profile selection
+- [ ] Dark/light theme toggle
+- [ ] Export/import settings
+- [ ] Multi-language support
 
-TVmaze - TV show database
 
-📞 Support
-Issues: GitHub Issues
+## 📊 Changelog
 
-Discussions: GitHub Discussions
+### v2.6 (Current)
 
-Riven Discord: Join Riven Community
+- Fixed Trakt URL matching for app.trakt.tv subdomain
+- Enhanced element detection for Letterboxd
+- Added event propagation fixes for button clicks
+- Improved title extraction with multiple fallback selectors
 
-🗺️ Roadmap
- Add support for more movie databases
 
- Implement keyboard shortcuts
+### v2.5
 
- Add notification preferences
+- Added multi-source ID lookup (TMDb, Trakt, TVmaze)
+- Implemented automatic IMDb to TMDb/TVDB conversion
+- Enhanced error handling with detailed console logging
 
- Support for movie collections/series
 
- Quality profile selection
+### v2.4
 
- Dark/light theme toggle
+- Added auto-refresh functionality (3-second intervals)
+- Implemented manual refresh button
+- Fixed duplicate prevention logic
 
- Export/import settings
+***
 
- Multi-language support
+**Made with ❤️ for the Riven community**
+<span style="display:none">[^1][^10][^2][^3][^4][^5][^6][^7][^8][^9]</span>
 
-📊 Changelog
-v2.6 (Current)
-Fixed Trakt URL matching for app.trakt.tv subdomain
+<div align="center">⁂</div>
 
-Enhanced element detection for Letterboxd
+[^1]: https://github.com/othneildrew/Best-README-Template
 
-Added event propagation fixes for button clicks
+[^2]: https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc
 
-Improved title extraction with multiple fallback selectors
+[^3]: https://www.readme-templates.com
 
-v2.5
-Added multi-source ID lookup (TMDb, Trakt, TVmaze)
+[^4]: https://www.reddit.com/r/programming/comments/l0mgcy/github_readme_templates_creating_a_good_readme_is/
 
-Implemented automatic IMDb to TMDb/TVDB conversion
+[^5]: https://www.youtube.com/watch?v=eVGEea7adDM
 
-Enhanced error handling with detailed console logging
+[^6]: https://everhour.com/blog/github-readme-template/
 
-v2.4
-Added auto-refresh functionality (3-second intervals)
+[^7]: https://www.makeareadme.com
 
-Implemented manual refresh button
+[^8]: https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
-Fixed duplicate prevention logic
+[^9]: https://github.com/durgeshsamariya/awesome-github-profile-readme-templates
 
-Made with ❤️ for the Riven community
+[^10]: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+
